@@ -7,6 +7,8 @@
  * @package verum
  */
 
+define('VERSION','1.0.0');
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -127,9 +129,64 @@ add_action( 'after_setup_theme', 'theme_slug_content_width', 0 );
 function theme_slug_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'theme-slug' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'theme-slug' ),
+			'name'          => esc_html__( 'Blog Sidebar', 'theme-slug' ),
+			'id'            => 'blog-sidebar',
+			'description'   => esc_html__( 'Blog Sidebar', 'theme-slug' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Header Left', 'theme-slug' ),
+			'id'            => 'header-left',
+			'description'   => esc_html__( 'Header Left Section', 'theme-slug' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Top', 'theme-slug' ),
+			'id'            => 'footer-top',
+			'description'   => esc_html__( 'Footer Top Area', 'theme-slug' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Top', 'theme-slug' ),
+			'id'            => 'footer-top',
+			'description'   => esc_html__( 'Footer Top Area', 'theme-slug' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Left', 'theme-slug' ),
+			'id'            => 'footer-left',
+			'description'   => esc_html__( 'Footer Left Area', 'theme-slug' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Right', 'theme-slug' ),
+			'id'            => 'footer-right',
+			'description'   => esc_html__( 'Footer Right Area', 'theme-slug' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -153,6 +210,39 @@ function theme_slug_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+
+	wp_enqueue_style('verum-google-fonts','//fonts.googleapis.com/css?family=Lora:400,400i,700|Playfair+Display:700');
+
+	wp_enqueue_style('bootstrap-css',get_theme_file_uri( 'assets/vendor/bootstrap/css/bootstrap.min.css' ));
+	wp_enqueue_style('font-awesome-css',get_theme_file_uri( 'assets/vendor/font-awesome/css/font-awesome.min.css' ));
+	wp_enqueue_style('slicknav-css',get_theme_file_uri( 'assets/vendor/slicknav/slicknav.css' ));
+	wp_enqueue_style('owlcarousel-css',get_theme_file_uri( 'assets/vendor/owl/assets/owl.carousel.min.css' ));
+	wp_enqueue_style('owl.theme-css',get_theme_file_uri( 'assets/vendor/owl/assets/owl.theme.default.min.css' ));
+	wp_enqueue_style('magnific-popup-css',get_theme_file_uri( 'assets/vendor/magnific-popup/magnific-popup.css' ));
+	wp_enqueue_style('animate-css',get_theme_file_uri( 'assets/vendor/animate.css' ));
+	wp_enqueue_style('justifiedGallery-css',get_theme_file_uri( 'assets/vendor/justifiedGallery/css/justifiedGallery.min.css' ));
+	wp_enqueue_style('verum-main-css',get_theme_file_uri( 'assets/css/main.css' ));
+	// wp_enqueue_style('verum-main-css',get_stylesheet_uri());
+
+
+
+
+
+
+	wp_enqueue_script('popper-js', get_theme_file_uri('assets/vendor/popper.min.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('bootstrap-js', get_theme_file_uri('assets/vendor/bootstrap/js/bootstrap.min.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('imagesloaded-js', get_theme_file_uri('assets/vendor/imagesloaded.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('jquery-slicknav-js', get_theme_file_uri('assets/vendor/slicknav/jquery.slicknav.min.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('owlcarousel-js', get_theme_file_uri('assets/vendor/owl/owl.carousel.min.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('owlcarouse-thumbs-js', get_theme_file_uri('assets/vendor/owl/owl.carousel2.thumbs.min.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('magnific-popup-js', get_theme_file_uri('assets/vendor/magnific-popup/jquery.magnific-popup.min.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('justifiedGallery-js', get_theme_file_uri('assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js'),array('jquery'), VERSION, true);
+	wp_enqueue_script('verum-main-js', get_theme_file_uri('assets/js/scripts.js'),array('jquery'), VERSION, true);
+
+
+
+	
 }
 add_action( 'wp_enqueue_scripts', 'theme_slug_scripts' );
 
