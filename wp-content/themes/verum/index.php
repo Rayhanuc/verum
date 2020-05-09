@@ -7,7 +7,7 @@ get_header();
     <!--post start-->
     <div class="container">
         <div class="row">
-            <div class="col-lg-9 col-md-8 side-border">
+            <div class="<?php blog_sidebar_check(); ?>">
                 <!-- posts area start -->
                 <div class="row post-grid">
 

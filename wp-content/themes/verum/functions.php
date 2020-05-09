@@ -279,3 +279,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
+function blog_sidebar_check(){
+	if (is_active_sidebar( 'blog-sidebar' )) {
+		echo "col-lg-9 col-md-8 side-border";
+	}else {
+		echo "col-lg-12 col-md-12";
+	}
+}

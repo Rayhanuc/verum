@@ -1538,7 +1538,16 @@ blog post
     margin-bottom: 2rem;
 }
 
-.post-grid .col-md-6:nth-child(odd)
+/*.post-grid .col-md-6:nth-child(odd)
+{
+    border-right: 1px solid #e8e8e8;
+}*/
+
+.post-grid .col-md-6:nth-child(1),
+.post-grid .col-md-6:nth-child(3)
+.post-grid .col-md-6:nth-child(5),
+.post-grid .col-md-6:nth-child(7),
+.post-grid .col-md-6:nth-child(9),
 {
     border-right: 1px solid #e8e8e8;
 }
