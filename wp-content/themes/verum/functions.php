@@ -1,4 +1,9 @@
 <?php
+
+
+require_once get_theme_file_path( "inc/tgm.php" );
+
+
 /**
  * verum functions and definitions
  *
@@ -102,6 +107,8 @@ if ( ! function_exists( 'theme_slug_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
+		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'audio', 'video', 'quote', 'link' ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'theme_slug_setup' );
@@ -280,7 +287,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-
+// Blog column setting
 function blog_sidebar_check(){
 	if (is_active_sidebar( 'blog-sidebar' )) {
 		echo "col-lg-9 col-md-8 side-border";
@@ -288,3 +295,16 @@ function blog_sidebar_check(){
 		echo "col-lg-12 col-md-12";
 	}
 }
+
+
+// Piklist post dependecies
+function verum_piklist_part_process($part){
+	global $post;
+	if ($post && 'post'==$post->post_type && 'audio-video.php'==$part['part']) {
+		if (in_array(get_post_format(),array('audio','video'))) {
+			return $part;
+		}
+	}
+	return false;
+}
+add_filter('piklist_part_process','verum_piklist_part_process',10,2);
