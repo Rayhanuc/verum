@@ -109,6 +109,8 @@ if ( ! function_exists( 'theme_slug_setup' ) ) :
 		);
 
 		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'audio', 'video', 'quote', 'link' ) );
+
+		add_image_size('verum_posts',1400,99999);
 	}
 endif;
 add_action( 'after_setup_theme', 'theme_slug_setup' );
@@ -308,3 +310,13 @@ function verum_piklist_part_process($part){
 	return false;
 }
 add_filter('piklist_part_process','verum_piklist_part_process',10,2);
+
+
+add_filter('wp_calculate_image_srcset','__return_false');
+
+
+function verum_remover_thumbnail_dimensions($html){
+	$html = preg_replace('/(width|height)=\"\d*\"\s/',"", $html);
+	return $html;
+}
+add_filter('post_thumbnail_html','verum_remover_thumbnail_dimensions');

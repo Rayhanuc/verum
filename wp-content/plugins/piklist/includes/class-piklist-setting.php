@@ -702,25 +702,27 @@ class Piklist_Setting
   {
     $page = isset($_REQUEST['page']) ? esc_attr($_REQUEST['page']) : false;
 
-    if ($page && empty($part['data']['flow']))
-    {
-      $part['data']['flow'] = array($part['data']['setting']);
-
-      if (!$part['data']['tab'])
+    if (is_array($part['data']['flow'])){
+      if ($page && empty($part['data']['flow']))
       {
-        $admin_pages = piklist_admin::get('admin_pages');
+        $part['data']['flow'] = array($part['data']['setting']);
 
-        foreach ($admin_pages as $admin_page)
+        if (!$part['data']['tab'])
         {
-          if ($_REQUEST['page'] == $admin_page['menu_slug'])
-          {
-            break;
-          }
-        }
+          $admin_pages = piklist_admin::get('admin_pages');
 
-        $part['data']['tab'] = array(isset($admin_page['default_tab']) ? piklist::slug($admin_page['default_tab']) : 'general');
+          foreach ($admin_pages as $admin_page)
+          {
+            if ($_REQUEST['page'] == $admin_page['menu_slug'])
+            {
+              break;
+            }
+          }
+
+          $part['data']['tab'] = array(isset($admin_page['default_tab']) ? piklist::slug($admin_page['default_tab']) : 'general');
+        }
       }
-    }
+  }
 
     return $part;
   }

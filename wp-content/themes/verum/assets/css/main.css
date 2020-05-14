@@ -1476,17 +1476,13 @@ blog post
 {
     display: inline-block;
 }
-.post .post-meta .separation
-{
+.post .post-meta .separation {
     position: relative;
-    top: -4px; 
-
+    top: -4px;
     display: inline-block;
-
-    width: 30px;
+    width: 11px;
     height: 1px;
-    margin: 0 15px;
-
+    margin: 0 10px;
     background: #cba866;
 }
 

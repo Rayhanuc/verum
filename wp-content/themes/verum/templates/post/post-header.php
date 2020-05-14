@@ -1,5 +1,13 @@
-<div class="post-img">
-    <a href="#">
-    	<img class="img-fluid" src="<?php echo get_template_directory_uri();?>/assets/img/b1.jpg" alt=""/>
-    </a>
-</div>
+
+<?php
+if(has_post_thumbnail()):
+
+?>
+	<div class="post-img">
+	    <a href="<?php the_permalink() ?>">
+	    	<?php the_post_thumbnail('verum_posts'); ?>
+	    </a>
+	</div>
+<?php
+endif;
+?>
