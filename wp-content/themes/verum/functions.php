@@ -307,6 +307,12 @@ function verum_piklist_part_process($part){
 			return $part;
 		}
 	}
+
+	if ($post && 'post'==$post->post_type && 'gallery.php'==$part['part']) {
+		if (in_array(get_post_format(),array('gallery'))) {
+			return $part;
+		}
+	}
 	return false;
 }
 add_filter('piklist_part_process','verum_piklist_part_process',10,2);
