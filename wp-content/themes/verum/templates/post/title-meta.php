@@ -20,6 +20,6 @@
         <?php
         	endif;
         ?>
-        <div class="post-date"><?php echo get_the_date('i F Y'); ?> <?php _e('By') ?> <?php the_author_posts_link(); ?></div>
+        <div class="post-date"><?php echo get_the_date('i F Y'); ?> <?php _e('By','verum') ?> <?php the_author_posts_link(); ?></div>
     </div>
 </div>
