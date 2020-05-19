@@ -26,11 +26,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 ">
-                    <div class="social-links ">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                    </div>
+                    <?php
+                    if(is_active_sidebar( 'header-left' )){
+                        dynamic_sidebar( 'header-left' );
+                    }
+                    ?>
                     <div class="logo">
                         <h1>
                             <a href="<?php echo home_url('/'); ?>">

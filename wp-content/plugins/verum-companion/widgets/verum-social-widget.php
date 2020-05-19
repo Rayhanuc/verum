@@ -1,10 +1,10 @@
 <?php 
 
-class MarkSocialIcons_Widget extends WP_Widget {
+class VerumSocialIcons_widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'verum_social_icons', // Base ID
-			__('Mark: Social Icons', 'verum-companion'),
+			__('Verum: Social Icons', 'verum-companion'),
 			array('description' => __('Social Icons','verum-companion'))
 		);
 	}
@@ -55,11 +55,7 @@ class MarkSocialIcons_Widget extends WP_Widget {
 		<?php
 		echo wp_kses_post($after_widget);
 	}
-
-
-
-
-
+	
 	public function update($new_instace, $old_instance) {
 		$instance = array();
 		$instance['title'] = strip_tags($new_instace['title']);
