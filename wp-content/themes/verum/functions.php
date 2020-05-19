@@ -326,3 +326,16 @@ function verum_remover_thumbnail_dimensions($html){
 	return $html;
 }
 add_filter('post_thumbnail_html','verum_remover_thumbnail_dimensions');
+
+
+
+function verum_user_contactmethods($cm){
+	$cm['facebook'] = __('Facebook','verum');
+	$cm['pinterest'] = __('Pinterest','verum');
+	$cm['twitter'] = __('Twitter','verum');
+	$cm['Dribbble'] = __('Dribbble','verum');
+	$cm['google-plus'] = __('Google Plus','verum');
+
+	return $cm;
+}
+add_filter('user_contactmethods','verum_user_contactmethods');

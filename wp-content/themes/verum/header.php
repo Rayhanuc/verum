@@ -159,7 +159,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <ul id="menu" class="menu">
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'menu-1',
+                            'menu_class' => 'menu',
+                            'menu_od' => 'menu'
+                        )
+                    );
+                    ?>
+                    <!-- <ul id="menu" class="menu">
                         <li><a href="index.html">Home</a>
                             <ul class="sub-menu">
                                 <li ><a href="index.html">Home Demo 1</a></li>
@@ -198,7 +207,7 @@
                             </ul>
                         </li>
                         <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
