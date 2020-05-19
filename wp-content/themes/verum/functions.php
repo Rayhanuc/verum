@@ -152,8 +152,8 @@ function theme_slug_widgets_init() {
 			'name'          => esc_html__( 'Header Left', 'theme-slug' ),
 			'id'            => 'header-left',
 			'description'   => esc_html__( 'Header Left Section', 'theme-slug' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		)
