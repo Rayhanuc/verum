@@ -60,6 +60,11 @@ if ( ! function_exists( 'theme_slug_setup' ) ) :
 				'menu-1' => esc_html__( 'Primary', 'theme-slug' ),
 			)
 		);
+		register_nav_menus(
+			array(
+				'footer-menu' => esc_html__( 'Footer Menu', 'theme-slug' ),
+			)
+		);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -185,18 +190,7 @@ function theme_slug_widgets_init() {
 			'name'          => esc_html__( 'Footer Left', 'theme-slug' ),
 			'id'            => 'footer-left',
 			'description'   => esc_html__( 'Footer Left Area', 'theme-slug' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer Right', 'theme-slug' ),
-			'id'            => 'footer-right',
-			'description'   => esc_html__( 'Footer Right Area', 'theme-slug' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'before_widget' => '<section id="%1$s" class="%2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
