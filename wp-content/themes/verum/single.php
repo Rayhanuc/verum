@@ -95,67 +95,15 @@ the_post();
                         </article>
 
                         <!--related post start-->
-                        <div class="row related-post">
-                            <div class="col-12 text-center">
-                                <h2 class="post-single-title">You may also like</h2>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <article class="post">
-                                    <div class="post-img">
-                                        <a href="#"><img class="img-fluid" src="assets/img/b2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="post-header">
-                                        <h3><a href="#">Alicia Keys is on the Picturesque Trip of a Lifetime in Egypt</a></h3>
-                                        <div class="post-meta">
-                                            <ul class="cat">
-                                                <li><a href="#">fashion</a></li>
-                                            </ul>
-                                            <div class="separation"></div>
-                                            <div class="post-date"><a href="#">28th June 2018</a></div>
-                                        </div>
-                                    </div>
+                        <?php get_template_part('templates/single-post/related','posts'); ?>
+                        <!--related post end-->
 
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <article class="post">
-                                    <div class="post-img">
-                                        <a href="#"><img class="img-fluid" src="assets/img/b3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="post-header">
-                                        <h3><a href="#">Alicia Keys is on the Picturesque Trip of a Lifetime in Egypt</a></h3>
-                                        <div class="post-meta">
-                                            <ul class="cat">
-                                                <li><a href="#">Travel</a></li>
-                                            </ul>
-                                            <div class="separation"></div>
-                                            <div class="post-date"><a href="#">28th June 2018</a></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <article class="post">
-                                    <div class="post-img">
-                                        <a href="#"><img class="img-fluid" src="assets/img/b4.jpg" alt=""></a>
-                                    </div>
-                                    <div class="post-header">
-                                        <h3><a href="#">Alicia Keys is on the Picturesque Trip of a Lifetime in Egypt</a></h3>
-                                        <div class="post-meta">
-                                            <ul class="cat">
-                                                <li><a href="#">lifestyle</a></li>
-                                            </ul>
-                                            <div class="separation"></div>
-                                            <div class="post-date"><a href="#">28th June 2018</a></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-                        <!--related post start-->
+                        <?php 
+                         comments_template();
+                        ?>
 
                         <!--comments area start-->
-                        <div class="comments">
+                        <!-- <div class="comments">
                             <h2 class="comments-title"> Comments</h2>
                             <ul>
                                 <li class="comment ">
@@ -170,7 +118,8 @@ the_post();
                                                 </b>
                                                 <span class="says">says:</span>
                                             </div>
-                                            <!-- .comment-author -->
+
+                                             .comment-author -->
 
                                             <div class="comment-metadata">
                                                 <a href="#">
@@ -230,11 +179,11 @@ the_post();
                                     </ul><!-- .children -->
                                 </li><!-- #comment-## -->
                             </ul>
-                        </div>
+                        </div> -->
                         <!--comments area end-->
 
                         <!--comment form start-->
-                        <div class="comment-respond">
+                        <!-- <div class="comment-respond">
                             <h3 class="comment-reply-title">
                                 Leave a Comment
                             </h3>
@@ -268,7 +217,7 @@ the_post();
                                     <button type="submit" class="btn btn-black">Send</button>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
                         <!--comment form end-->
                     </div>
                 </div>

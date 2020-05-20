@@ -54,6 +54,7 @@ if ( post_password_required() ) {
 				array(
 					'style'      => 'ol',
 					'short_ping' => true,
+					'avatar_size' => 128
 				)
 			);
 			?>
@@ -71,7 +72,72 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+
+            	$verum_comment_fields = array();
+            	$flowapp_name_field_placeholder =__('Your Name ','verum');
+            	$flowapp_email_field_placeholder =__('Your Email ','verum');
+            	$flowapp_url_field_placeholder =__('Your Website ','verum');
+            	$flowapp_message_field_placeholder =__('Your Message','verum');
+            	$flowapp_send_message_field_placeholder =__('Send','verum');
+            	$verum_comment_fields['author']=<<<EOD
+<div class="row">
+	<div class=" col-md-4">
+	    <div class="form-group">
+            <input type="text" class="form-control" placeholder="{$flowapp_name_field_placeholder}*" id="author" name="author" required="" data-validation-required-message="Please enter your name." aria-invalid="false">
+            <p class="help-block text-danger"></p>
+        </div>
+	</div>
+EOD;
+
+				$verum_comment_fields['email']=<<<EOD
+	<div class=" col-md-4">
+		<div class="form-group">
+	        <input type="email" class="form-control" placeholder="{$flowapp_email_field_placeholder}*" id="email" name="email" required="" data-validation-required-message="Please enter your email address.">
+	        <p class="help-block text-danger"></p>
+	    </div>
+    </div>
+EOD;
+				$verum_comment_fields['url']=<<<EOD
+	<div class=" col-md-4">
+		<div class="form-group">
+	        <input type="tel" class="form-control" placeholder="{$flowapp_url_field_placeholder} *" id="url" name="url" required="" data-validation-required-message="Please enter your website address.">
+	        <p class="help-block text-danger"></p>
+	    </div>
+    </div>
+</div>
+EOD;
+
+				$verum_comment_field = <<<EOD
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-group">
+		    <div class="controls">
+		        <textarea id="message" rows="5" placeholder="{$flowapp_message_field_placeholder}*" class="form-control" required="" data-validation-required-message="Please enter a message."></textarea>
+		    </div>
+		</div>
+EOD;
+
+				$verum_comment_submit_button = <<<EOD
+		<div class="col-md-12 text-center">
+		        <div id="success"></div>
+		        <button type="submit" class="btn btn-black">{$flowapp_send_message_field_placeholder}</button>
+		    </div>
+		</div>
+	</div>
+</div>
+EOD;
+
+
+	$verum_comment_form_arguments = array(
+		'fields' => $verum_comment_fields,
+		'comment_field' => $verum_comment_field,
+		'submit_button' => $verum_comment_submit_button,
+		'id_form' => 'contactForm',
+		'comment_notes_before' => '<p></p>',
+		'comment_notes_after' => '<p>'.__('Your email no will not be published','verum').'</p>',
+		'title_replay' => ''
+	);
+	comment_form( $verum_comment_form_arguments );
 	?>
 
 </div><!-- #comments -->

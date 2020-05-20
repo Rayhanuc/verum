@@ -339,3 +339,13 @@ function verum_user_contactmethods($cm){
 	return $cm;
 }
 add_filter('user_contactmethods','verum_user_contactmethods');
+
+
+function verum_comment_form_fields($fields){
+
+	$comment_field = $fields['comment'];
+	unset($fields['comment']);
+	$fields['comment'] = $comment_field;
+	return $fields;
+}
+add_filter( 'comment_form_fields','verum_comment_form_fields' );
