@@ -951,3 +951,8 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+
+.widget ul {
+    margin-left: 0;
+}
