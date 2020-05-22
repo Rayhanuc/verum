@@ -10,9 +10,11 @@
 if ( ! is_active_sidebar( 'blog-sidebar' ) ) {
 	return;
 }
+$verum_sidebar_position = get_theme_mod('sidebar_display_setting','no');
+$verum_sidebar_border = 'left'== $verum_sidebar_position?'side-border':'';
 ?>
 
-<div class="col-lg-3 col-md-4">
+<div class="col-lg-3 col-md-4 <?php esc_attr($verum_sidebar_border); ?>">
     <div class="widget">
         <h2 class="widget-title">Categories</h2>
         <ul>

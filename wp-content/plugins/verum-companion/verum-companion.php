@@ -15,6 +15,7 @@
  */
 
 require_once plugin_dir_path(__FILE__)."/widgets/verum-social-widget.php";
+require_once plugin_dir_path(__FILE__)."/widgets/verum-social-widget.php";
 
 
 function verumc_load_textdomain(){

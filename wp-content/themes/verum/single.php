@@ -2,14 +2,24 @@
 
 get_header('single');
 the_post();
+
+$verum_sidebar_position = get_theme_mod('sidebar_display_setting','no');
+$verum_container_class = 'no'==$verum_sidebar_position?'col-md-12':'col-lg-9 col-md-8';
+$verum_sidebar_border = 'right'== $verum_sidebar_position?'side-border':'';
 ?>
 
     <!--post start-->
     <div class="container">
         <div class="row">
-            <div class="<?php blog_sidebar_check(); ?>">
+            <?php
+            if ('left'==$verum_sidebar_position) {
+                get_sidebar();
+            }
+            ?>
+            <div class="<?php echo esc_attr($verum_container_class); ?> <?php echo esc_attr($verum_sidebar_border); ?>">
 
                 <div class="row">
+                    
                     <div class="col-md-12">
                         <article class="post">
                             <!--<div class="post-img">-->
@@ -102,14 +112,17 @@ the_post();
                          comments_template();
                         ?>
                     </div>
+                    
                 </div>
+
+                <?php
+                if ('right'==$verum_sidebar_position) {
+                    get_sidebar();
+                }
+                ?>
+                
             </div>
 
-            <!-- Sidebar area start -->
-            <?php
-            get_sidebar();
-            ?>
-            <!-- Sidebar area end -->
         </div>
     </div>
     <!--post end-->
