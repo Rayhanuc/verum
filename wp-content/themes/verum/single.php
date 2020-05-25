@@ -22,9 +22,9 @@ $verum_sidebar_border = 'right'== $verum_sidebar_position?'side-border':'';
                     
                     <div class="col-md-12">
                         <article class="post">
-                            <!--<div class="post-img">-->
-                                <!--<a href="#"><img class="img-fluid" src="assets/img/b1.jpg" alt=""/></a>-->
-                            <!--</div>-->
+                            <?php 
+                            get_template_part("templates/single-post/post","header");
+                            ?>
                             <?php get_template_part('templates/single-post/title','meta'); ?>
                             <div class="post-blog">
                                 <?php
