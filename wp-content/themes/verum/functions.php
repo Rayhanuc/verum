@@ -308,6 +308,10 @@ function verum_piklist_part_process($part){
 		}
 	}
 
+	if ($post && 'page'==$post->post_type && 'about-page.php'==$part['part']) {
+		return $part;
+	}
+
 	if ($post && 'post'==$post->post_type && 'gallery.php'==$part['part']) {
 		if (in_array(get_post_format(),array('gallery'))) {
 			return $part;
