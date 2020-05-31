@@ -21,7 +21,6 @@
     	else:
     		get_template_part('templates/post/post','quote');
 
-
     	endif;
     	?>    
 </div>

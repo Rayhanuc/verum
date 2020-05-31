@@ -300,15 +300,19 @@ function blog_sidebar_check(){
 
 
 // Piklist post dependecies
-function verum_piklist_part_process($part){
+/*function verum_piklist_part_process($part){
 	global $post;
 	if ($post && 'post'==$post->post_type && 'audio-video.php'==$part['part']) {
 		if (in_array(get_post_format(),array('audio','video'))) {
 			return $part;
 		}
 	}
-
-	if ($post && 'page'==$post->post_type && 'about-page.php'==$part['part']) {
+	
+	if ($post && 'page'==$post->post_type && 'contact-page.php'==$part['part'] ) {
+		return $part;
+	}
+	
+	if ($post && 'page'==$post->post_type && 'about-page.php'==$part['part'] ) {
 		return $part;
 	}
 
@@ -319,7 +323,7 @@ function verum_piklist_part_process($part){
 	}
 	return false;
 }
-add_filter('piklist_part_process','verum_piklist_part_process',10,2);
+add_filter('piklist_part_process','verum_piklist_part_process',10,2);*/
 
 
 add_filter('wp_calculate_image_srcset','__return_false');

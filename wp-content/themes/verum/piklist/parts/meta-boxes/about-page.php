@@ -3,6 +3,7 @@
 /*
 Title: About Page Data
 Post type: page
+Template: page-templates/about
 */
 
 piklist('field',array(
