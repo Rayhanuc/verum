@@ -1,53 +1,90 @@
 <?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package verum
- */
 
-get_header();
+get_header('search');
+
+$verum_sidebar_position = get_theme_mod('sidebar_display_setting','no');
+$verum_container_class = 'no'==$verum_sidebar_position?'col-md-12':'col-lg-9 col-md-8';
+$verum_sidebar_border = 'right'== $verum_sidebar_position?'side-border':'';
 ?>
 
-	<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+    <!--post start-->
+    <div class="container">
+        <div class="row">
+            <?php
+            if ('left'==$verum_sidebar_position) {
+                get_sidebar();
+            }
+            ?>
+            <div class="<?php echo esc_attr($verum_container_class); ?> <?php echo esc_attr($verum_sidebar_border); ?>">
+                <!-- posts area start -->
+                <div class="row post-grid">
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'theme-slug' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+            	<?php 
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+            	while(have_posts()){
+            		the_post();
+            		get_template_part('templates/post/container');
+            	}
+            	?>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+                    
+                </div>
+                <!-- posts area end -->
 
-			endwhile;
+                <!--custom pagination-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="custom-pagination">
+                            <?php
+                            $verum_ppl = get_previous_posts_link();
+                            if(!$verum_ppl):
+                            ?>
+                            <div class="older full">
+                                <?php next_posts_link(__('Older Posts >','verum')); ?>
+                            </div>
+                            <?php
+                            else:
+                            ?>
+                            <div class="older">
+                                <?php next_posts_link(__('Older Posts >','verum')); ?>
+                            </div>
+                            <?php
+                            endif;
+                            ?>
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+                            <?php
+                            $verum_npl = get_next_posts_link();
+                            if(!$verum_npl):
+                            ?>
+                            <div class="older full">
+                                <?php previous_posts_link(__('< Newer Posts','verum')); ?>
+                            </div>
+                            <?php
+                            else:
+                            ?>
+                            <div class="newer">
+                                <?php previous_posts_link(__('< Newer Posts','verum')); ?>
+                            </div>
+                            <?php
+                            endif;
+                            ?> 
+                        </div>
+                    </div>                    
+                </div>
+                
+                <!--custom pagination-->
+            </div>
+            <?php
+            if ('right'==$verum_sidebar_position) {
+                get_sidebar();
+            }
+            ?>
+        </div>
+    </div>
+    <!--post end-->
 
 <?php
-get_sidebar();
 get_footer();
+
+?>

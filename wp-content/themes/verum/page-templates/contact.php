@@ -8,6 +8,7 @@
 
 get_header('single');
 the_post();
+if(!isset($part['part'])) :
 ?>
 
 <!--post start-->
@@ -40,6 +41,7 @@ the_post();
 <!--post end-->
 
 <?php
+endif;
 get_footer();
 
 ?>
