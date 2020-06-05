@@ -3,8 +3,9 @@
 get_header(); 
 
 $verum_sidebar_position = get_theme_mod('sidebar_display_setting','no');
-$verum_container_class = 'no'==$verum_sidebar_position?'col-md-12':'col-lg-9 col-md-8';
-$verum_sidebar_border = 'right'== $verum_sidebar_position?'side-border':'';
+$verum_overridden_sidebar_position = isset($_GET['sb'])?$_GET['sb']:$verum_sidebar_position;
+$verum_container_class = 'no'==$verum_overridden_sidebar_position?'col-md-12':'col-lg-9 col-md-8';
+$verum_sidebar_border = 'right'== $verum_overridden_sidebar_position?'side-border':'';
 ?>
 
 
@@ -12,7 +13,7 @@ $verum_sidebar_border = 'right'== $verum_sidebar_position?'side-border':'';
     <div class="container">
         <div class="row">
             <?php
-            if ('left'==$verum_sidebar_position) {
+            if ('left'==$verum_overridden_sidebar_position) {
                 get_sidebar();
             }
             ?>
@@ -76,7 +77,7 @@ $verum_sidebar_border = 'right'== $verum_sidebar_position?'side-border':'';
                 <!--custom pagination-->
             </div>
             <?php
-            if ('right'==$verum_sidebar_position) {
+            if ('right'==$verum_overridden_sidebar_position) {
                 get_sidebar();
             }
             ?>
