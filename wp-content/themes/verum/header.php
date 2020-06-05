@@ -84,5 +84,7 @@
     </div><!--responsive nav end-->
 
     <!--nav end-->
-
-    <?php /*echo*/ get_template_part('templates/banner'); ?>
+    <?php 
+    $verum_banner_style = get_theme_mod('banner_style', 1);
+    get_template_part('templates/banner/banner', $verum_banner_style); 
+    ?>

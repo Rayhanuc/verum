@@ -241,10 +241,9 @@ function theme_slug_scripts() {
 	wp_enqueue_script('owlcarouse-thumbs-js', get_theme_file_uri('assets/vendor/owl/owl.carousel2.thumbs.min.js'),array('jquery'), VERSION, true);
 	wp_enqueue_script('magnific-popup-js', get_theme_file_uri('assets/vendor/magnific-popup/jquery.magnific-popup.min.js'),array('jquery'), VERSION, true);
 	wp_enqueue_script('justifiedGallery-js', get_theme_file_uri('assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js'),array('jquery'), VERSION, true);
-	wp_enqueue_script('verum-main-js', get_theme_file_uri('assets/js/scripts.js'),array('jquery'), VERSION, true);
-
-
-
+	wp_enqueue_script('verum-main-js', get_theme_file_uri('assets/js/scripts.js'),array('jquery'), time(), true);
+	$template_directory = get_template_directory_uri();
+	wp_localize_script('verum-main-js','verum',array('template_path' => $template_directory));
 	
 }
 add_action( 'wp_enqueue_scripts', 'theme_slug_scripts' );
